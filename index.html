@@ -1,0 +1,339 @@
+
+<!-- saved from url=(0078)http://baobei.henicpa.org.cn/viewreport/init?viewType=QrCode&reports_id=977930 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript">
+	var path = window.path = '';
+</script>
+
+
+
+	
+	    <title>河南省注册会计师协会</title>
+	    <meta name="renderer" content="webkit">
+	    
+	    <style type="text/css">
+	        td {
+	            font-size: 12px;
+	            color: #333333;
+	            font-weight: bold;
+	        }
+	    </style>
+	    <link type="text/css" rel="stylesheet" href="./files/rptview.css">
+	    <script type="text/javascript" src="./files/jquery.js.下载"></script>
+	    <script type="text/javascript" src="./files/layer.js.下载"></script><link rel="stylesheet" href="./files/layer.css" id="layuicss-skinlayercss">
+	<script language="JavaScript">
+		$(document).ready(function() {
+			// 显示人员与资格
+			var mystr = String.fromCharCode(10);
+			var personList = null;
+			if ($("#amount_name").val() != "") {
+				personList = $("#amount_name").val().split(mystr);
+				for (var i = 0; i < personList.length; i++) {
+					$("#personTd").append(personList[i]+"&nbsp;");
+				}
+			}
+			
+			if ($("#bg_type").val() == "专项审计") {
+				$("#zxTypeSpan").show();
+			} else if ($("#bg_type").val() == "其他审计") {
+				$("#other_capital_td").show();
+			}
+		});
+	
+		// 打印报表
+	    function printf() {
+	    	$("#tr_button").hide();
+	        window.print();
+	        $("#tr_button").show();
+	    }
+		
+		// 重填信息
+		function resetInfo() {
+			window.location.href = '/reportsubmit/init?reports_id=977930&act=edit';
+		}
+		
+		// 提交审核
+		function submitExam() {
+			
+			if(confirm("确定要提交审核吗？")) {
+				$.ajax({
+		             type: "POST",
+		             url: "/reportexam/submitExam",
+		             data: {id: "977930"},
+		             dataType: "json",
+		             complete: function(data) {
+		            	 var message = data.responseText;
+
+						if(message == "success"){
+							alert("操作成功！");
+							window.location.href = '/viewreport/init?reports_id=977930&act=view';
+						} else {
+							alert("操作失败！");
+						}
+		        	 }
+		         });
+			}
+		}
+	
+	    function AutomateExcel() {
+	        // Start Excel and get Application object. 
+	        var oXL = new ActiveXObject("Excel.Application");
+	        // Get a new workbook. 
+	        var oWB = oXL.Workbooks.Add();
+	        var oSheet = oWB.ActiveSheet;
+	        var table = document.all.table_look;
+	        var hang = table.rows.length;
+	        var lie = table.rows(0).cells.length;
+	
+	        oSheet.Cells(1, 1).value = "状态:";
+	        oSheet.Cells(1, 2).value = '审核通过';
+	        oSheet.Cells(1, 3).value = "更新日期:";
+	        oSheet.Cells(1, 4).value = '2018-8-21 15:48:22';
+	        // Add table headers going cell by cell. 
+	        for (i = 1; i < hang - 1; i++) {
+	            lie = table.rows(i).cells.length;
+	            for (j = 0; j < lie; j++) {
+	                oSheet.Cells(i + 1, j + 1).value = table.rows(i).cells(j).innerText;
+	            }
+	        }
+	        oXL.Visible = true;
+	        oXL.UserControl = true;
+	    }
+	</script></head>
+
+	
+
+	<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+	    
+	    	<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+		      <tbody><tr>
+		        <td height="90" valign="middle" background="./files/bj10.gif"><img src="./files/little.gif" width="445" height="69"></td>
+		        <td align="right" background="./files/bj10.gif"><img src="./files/pic_04.gif" width="260" height="90"></td>
+		      </tr>
+		      <tr valign="top">
+		        <td height="4" colspan="2" align="left"><img src="./files/bj11.gif" width="10" height="4"></td>
+		      </tr>
+			</tbody></table>
+	    
+	    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	        <tbody><tr>
+	            <td height="495" valign="top">
+	                <br>
+	                <table border="1" cellspacing="0" id="table_look" cellpadding="6" align="center" width="95%" bordercolordark="#FFFFFF" bordercolorlight="#CCCCCC">
+	                    <tbody><tr bgcolor="#9FBFE3">
+	                        <td colspan="3"><b> 977930 报表 </b> 状态:
+	                            <font color="#ff0000">
+	                            	
+	                            		
+	                            		
+	                            		审核通过
+	                            		
+	                            	
+	                            </font> <!-- 操作ID: --></td>
+	                        <td><b>更新日期: 2018-8-21 15:48:22</b></td>
+	                    </tr>
+	                    <form action="http://baobei.henicpa.org.cn/viewreport/init?viewType=QrCode&amp;reports_id=977930" method="post" name="look_reports"></form>
+	                    	<tr bgcolor="#F0F0F0">
+	                            <td align="right">报告类型:</td>
+	                            <td>验资
+	                            	<input type="hidden" value="验资" id="bg_type" name="bg_type"></td>
+	                            <td align="right"><span id="zxTypeSpan" style="display: none;">专项审计类型:</span>
+	                            	
+	                            </td>
+	                            <td>
+	                            	
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+									
+	                            &nbsp;</td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right">客户名称:</td>
+	                            <td>濮阳市壹线战区电子竞技俱乐部</td>
+	                            <!-- <td align="center">&nbsp;<img border=0 height="100" width="100" src="images/QRCode/995471_1484114760571.jpg"></td>
+	                            <td>&nbsp;
+	                                <a href="ReportIntput/995471_report.jpg" target=_blank><img border=0 height="30" width="30" src="ReportIntput/995471_report.jpg"></a>
+	                            </td> -->
+	                            <td width="21%" align="right">验证码:</td>
+	                            <td>
+	                            	
+	                        			8c85&nbsp;2eb1&nbsp;8220&nbsp;ac2c
+	                        		
+								</td>
+	                        </tr>
+	                        
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right">注册资金:</td>
+	                            <td width="25%">
+	                            	
+	                            		
+	                            			5 万元
+	                            		
+	                            		
+	                            	
+	                            </td>
+	                            <td width="25%" align="right">企业类型:</td>
+	                            <td width="29%">其他</td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right">企业法定代表人:</td>
+	                            <td width="25%">安旭艳 </td>
+	                            <td align="right">货币种类:</td>
+	                            <td width="25%">人民币 </td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right">所属事务所:</td>
+	                            <td width="25%">河南万汇所[41010136]</td>
+	                            <td width="25%" align="right">所属协会:</td>
+	                            <td width="29%">河南省注册会计师协会</td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right">报告文号:</td>
+	                            <td>豫万汇验字[2016]第BT0186号</td>
+	                            <td align="right">外勤工作时间:</td>
+	                            <td> 1 天
+	                            </td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0" id="other_capital_td" style="display: none;">
+	                            <td align="right">审计资产总额:</td>
+	                            <td colspan="3"> </td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right">项目组人数:</td>
+	                            <td>2</td>
+	
+	                            <td align="right">审计报告日期:</td>
+	
+	                            <td>2018-08-21 </td>
+	                        </tr>
+	                        
+	                        
+	                        	
+	                        	
+	                        		<tr bgcolor="#F0F0F0">
+			                            <td align="right">意见类型:</td>
+			                            <td>设立验资</td>
+			                            <td align="right">&nbsp;</td>
+			                            <td>&nbsp;</td>
+			                        </tr>
+			                        <tr bgcolor="#F0F0F0">
+			                            <td align="right">注册资本:</td>
+			                            <td>50000 元</td>
+			                            <td align="right">本次实缴资本:</td>
+			                            <td>1000000 元</td>
+			                        </tr>
+			                        
+			                        <tr bgcolor="#F0F0F0">
+			                            <td align="right">货币出资:</td>
+			                            <td>1000000 元</td>
+			                            <td align="right">实物出资:</td>
+			                            <td>0 元</td>
+			                        </tr>
+			                        <tr bgcolor="#F0F0F0">
+			                            <td align="right">无形资产出资:</td>
+			                            <td>0 元</td>
+			                            <td align="right">其他形式出资</td>
+			                            <td>0 元</td>
+			                        </tr>
+			                        <tr bgcolor="#F0F0F0">
+			                            <td align="right">开户行:</td>
+			                            <td>中国建设银行郑州聚源路支行</td>
+			                            <td align="right">开户行账号</td>
+			                            <td>41050161810800000272</td>
+			                        </tr>
+	                        	
+	                        	
+	                        	
+	                        
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right">签字注师一:</td>
+	                            <td>张自永</td>
+	
+	                            <td align="right">证书编号一:</td>
+	                            <td>410000290034</td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right">签字注师二:</td>
+	                            <td>刘铁山</td>
+	
+	                            <td align="right">证书编号二:</td>
+	                            <td>410000180021</td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right" valign="top">备注说明:</td>
+	                            <td colspan="3">无</td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0">
+	                            <td align="right">添加日期:</td>
+	                            <td colspan="3">2018-8-21 15:48:22</td>
+	                        </tr>
+	                        <tr bgcolor="#F0F0F0" id="tr_button" style="display: ">
+	                            <td colspan="4" align="center">
+	                            	
+	                                <input id="buttton02" name="buttton02" type="button" onclick="printf()" value="打 印">&nbsp;&nbsp;&nbsp; 
+	                            </td>
+	                        </tr>
+	                    
+	                </tbody></table>
+	            </td>
+	        </tr>
+	    </tbody></table>
+	
+	
+	<textarea style="display: none;" id="amount_name" name="amount_name" cols="50" rows="6">丁慧君,注册会计师
+刘铁山,注册会计师
+</textarea>
+<div id="fatkun-drop-panel">
+            <div id="fatkun-drop-panel-inner">
+                <div class="fatkun-content">
+                    <svg class="fatkun-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5892"><path d="M494.933333 782.933333c2.133333 2.133333 4.266667 4.266667 8.533334 6.4h8.533333c6.4 0 10.666667-2.133333 14.933333-6.4l2.133334-2.133333 275.2-275.2c8.533333-8.533333 8.533333-21.333333 0-29.866667-8.533333-8.533333-21.333333-8.533333-29.866667 0L533.333333 716.8V128c0-12.8-8.533333-21.333333-21.333333-21.333333s-21.333333 8.533333-21.333333 21.333333v588.8L249.6 475.733333c-8.533333-8.533333-21.333333-8.533333-29.866667 0-8.533333 8.533333-8.533333 21.333333 0 29.866667l275.2 277.333333zM853.333333 874.666667H172.8c-12.8 0-21.333333 8.533333-21.333333 21.333333s8.533333 21.333333 21.333333 21.333333H853.333333c12.8 0 21.333333-8.533333 21.333334-21.333333s-10.666667-21.333333-21.333334-21.333333z" p-id="5893"></path></svg>
+                    <div class="fatkun-title">拖拽到此处</div>
+                    <div class="fatkun-desc">图片将通过Fatkun完成下载</div>
+                </div>
+            </div>
+    </div></body></html>
